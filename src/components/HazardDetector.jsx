@@ -38,7 +38,7 @@ export default function HazardDetector() {
     const formData = new FormData()
 formData.append('file', document.getElementById('fileInput').files[0])
 
-const res = await fetch('http://localhost:8000/api/detect', {
+const res = await fetch('https://minesafe-ai.onrender.com/api/detect', {
   method: 'POST',
   body: formData
 })

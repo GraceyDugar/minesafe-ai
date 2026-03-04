@@ -40,7 +40,7 @@ export default function Hero() {
 
   // Fetch real data from your backend on load
   useEffect(() => {
-    fetch('http://localhost:8000/api/insights')
+    fetch('https://minesafe-ai.onrender.com/api/insights')
       .then(res => res.json())
       .then(data => {
         setStats({
