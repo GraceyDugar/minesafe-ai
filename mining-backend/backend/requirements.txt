@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+numpy
+pillow
+python-multipart
+ultralytics
+scikit-learn
