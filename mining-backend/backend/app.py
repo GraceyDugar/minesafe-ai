@@ -1,6 +1,6 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-import pandas as pd
+import csv 
 import numpy as np
 import pickle
 import io
@@ -57,25 +57,18 @@ def root():
 @app.get("/api/insights")
 def get_insights():
     try:
-        tunnel = pd.read_csv(
-            DATA_DIR / "environmental" / "tunnel_risk_dataset.csv"
-        )
-        # Risk_Level column is real — 0,1,2 scale
-        total_tunnels  = len(tunnel)
-        high_risk      = int((tunnel["Risk_Level"] >= 2).sum())
-        avg_depth      = round(float(tunnel["Depth (m)"].mean()), 1)
-        avg_settlement = round(float(tunnel["Settlement (mm)"].mean()), 2)
-        avg_displace   = round(float(tunnel["Displacement (mm)"].mean()), 2)
-
+        with open(DATA_DIR / "environmental" / "tunnel_risk_dataset.csv") as f:
+            reader = list(csv.DictReader(f))
+        total = len(reader)
+        high_risk = sum(1 for r in reader if int(r['Risk_Level']) >= 2)
+        avg_depth = sum(float(r['Depth (m)']) for r in reader) / total
         return {
-            "status":            "Operational",
-            "hazards_detected":  total_tunnels,
-            "risk_zones":        high_risk,
-            "accuracy":          94,
-            "depth_scanned":     int(avg_depth),
-            "avg_settlement_mm": avg_settlement,
-            "avg_displacement_mm": avg_displace,
-            "message":           "All systems nominal"
+            "status": "Operational",
+            "hazards_detected": total,
+            "risk_zones": high_risk,
+            "accuracy": 94,
+            "depth_scanned": int(avg_depth),
+            "message": "All systems nominal"
         }
     except Exception as e:
         return {"status": "error", "message": str(e)}
