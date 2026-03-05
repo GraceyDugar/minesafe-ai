@@ -312,9 +312,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     Promise.all([
-      fetch('https://minesafe-ai.onrender.com/api/environmental').then(r => r.json()),
-      fetch('https://minesafe-ai.onrender.com/api/production').then(r => r.json()),
-      fetch('https://minesafe-ai.onrender.com/api/risk').then(r => r.json()),
+      fetch('https://minesafe-backend.onrender.com/api/environmental').then(r => r.json()),
+      fetch('https://minesafe-backend.onrender.com/api/production').then(r => r.json()),
+      fetch('https://minesafe-backend.onrender.com/api/risk').then(r => r.json()),
     ])
     .then(([env, prod, risk]) => {
       setEnvData(env)
