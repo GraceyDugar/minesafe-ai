@@ -2,8 +2,9 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 function useCounter(target, duration = 2000, suffix = '') {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(target)
   useEffect(() => {
+    if (!target) return
     let start = 0
     const step = target / (duration / 16)
     const timer = setInterval(() => {
@@ -31,36 +32,16 @@ function StatItem({ label, value, suffix, color }) {
 }
 
 export default function Hero() {
-  const [stats, setStats] = useState({
-    hazards_detected: 0,
-    risk_zones:       0,
-    accuracy:         0,
-    depth_scanned:    0,
-  })
+ 
 
   // Fetch real data from your backend on load
-  useEffect(() => {
-    fetch('https://minesafe-backend.onrender.com/api/insights')
-      .then(res => res.json())
-      .then(data => {
-        setStats({
-          hazards_detected: data.hazards_detected || 0,
-          risk_zones:       data.risk_zones       || 0,
-          accuracy:         data.accuracy         || 0,
-          depth_scanned:    data.depth_scanned    || 0,
-        })
-      })
-      .catch(err => {
-        console.log('Backend not available, using defaults', err)
-        setStats({ hazards_detected: 1000, risk_zones: 824, accuracy: 94, depth_scanned: 108 })
-      })
-  }, [])
+ 
 
   const STATS = [
-    { label: 'Tunnels Analyzed',  value: stats.hazards_detected, suffix: '',  color: '#3be8b0' },
-    { label: 'High Risk Zones',   value: stats.risk_zones,       suffix: '',  color: '#f4a233' },
-    { label: 'Detection Accuracy',value: stats.accuracy,         suffix: '%', color: '#e8eaf0' },
-    { label: 'Avg Depth',         value: stats.depth_scanned,    suffix: 'm', color: '#4d9fff' },
+    { label: 'Tunnels Analyzed',   value: 1000, suffix: '',  color: '#3be8b0' },
+    { label: 'High Risk Zones',    value: 824,  suffix: '',  color: '#f4a233' },
+    { label: 'Detection Accuracy', value: 94,   suffix: '%', color: '#e8eaf0' },
+    { label: 'Avg Depth',          value: 108,  suffix: 'm', color: '#4d9fff' },
   ]
 
   return (
@@ -115,8 +96,8 @@ export default function Hero() {
         style={styles.statsBar}
       >
         {STATS.map((s) => (
-          <StatItem key={s.label} {...s} />
-        ))}
+          <StatItem key={s.label + s.value} {...s} />
+  ))}
       </motion.div>
     </section>
   )
