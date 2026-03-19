@@ -129,7 +129,7 @@ The platform operates across **3 intelligent modules**, all coordinated through 
 ## 👨‍💻 Author
 
 **Your Name**  
-Final Year Engineering Student  
+Sophomore Data Science Student  
 [GitHub](https://github.com/GraceyDugar) • [LinkedIn](https://www.linkedin.com/in/gracey-dugar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) • [Live Demo](https://minesafe-ai.vercel.app)
 
 ---
