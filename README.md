@@ -3,12 +3,6 @@
 > **ROS-Enabled Cognitive Digital Twin System for Underground Mining Hazard Detection & Navigation**  
 > Built in collaboration with **Tata Steel Mining** | Data sourced from **Ballari, Karnataka**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-brightgreen?style=for-the-badge)](https://final-year-projects-hub.vercel.app)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
-[![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Styling-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
-[![ROS](https://img.shields.io/badge/ROS-Autonomy-22314E?style=for-the-badge)](https://www.ros.org)
-
 ---
 
 ## 🧠 What is MineSafe AI?
