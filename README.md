@@ -9,7 +9,7 @@
 
 MineSafe AI is a **real-world autonomous safety and navigation platform** designed for underground mining environments such as iron ore, manganese ore, and coal mines.
 
-Mining environments are some of the most dangerous workplaces on earth — low visibility, extreme dust, unpredictable rockfalls, and complex underground geometry make every operation a risk. MineSafe AI tackles this head-on by combining:
+Mining environments are some of the most dangerous workplaces on the globe — low visibility, extreme dust, unpredictable rockfalls, and complex underground geometry make every operation a risk. MineSafe AI tackles this head-on by combining:
 
 - 🎯 **AI-powered object detection** (YOLO) trained on real mining data
 - 🧬 **Cognitive Digital Twin** that *thinks*, not just visualizes
